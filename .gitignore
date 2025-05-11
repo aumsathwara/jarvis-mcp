@@ -1,2 +1,4 @@
 jarvis-cd/
 .venv/
+
+src/.env
