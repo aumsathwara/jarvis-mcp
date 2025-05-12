@@ -1,3 +1,6 @@
 jarvis-cd/
 .venv/
 src/jarvis_mcp/.env
+
+src/jarvis_mcp/__pycache__/
+src/jarvis_mcp/capabilities/__pycache__/

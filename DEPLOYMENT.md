@@ -172,25 +172,38 @@ Target cloud VM / K8s node; users connect from *other* machines.
 ## 3. Docker-file cheat-sheet
 
 ```dockerfile
+# Dockerfile
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends git && \
-    rm -rf /var/lib/apt/lists/*
+# install git for pip‐editable VCS installs
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends git \
+ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+
+# bring in project metadata
 COPY pyproject.toml requirements.txt ./
+
+# copy your code
 COPY src/ ./src/
 
-RUN pip install --upgrade pip && \
-    pip install uvicorn && \
-    pip install -r requirements.txt -e .
+# install uvicorn + your MCP package + its git‐hosted deps
+RUN pip install --upgrade pip \
+ && pip install uvicorn \
+ && pip install \
+      -r requirements.txt \
+      -e . 
 
+# default to SSE on 127.0.0.1:3001
 ENV MCP_TRANSPORT=sse \
     MCP_SSE_HOST=0.0.0.0 \
     MCP_SSE_PORT=3001
-
+    
 EXPOSE 3001
+
 CMD ["python", "src/jarvis_mcp/server.py"]
+
 ```
 
 ---

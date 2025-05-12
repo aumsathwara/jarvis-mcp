@@ -69,7 +69,8 @@ mcp-client
 # or
 python src/jarvis_mcp/client.py
 ```
-
+The output should look like below:
+![alt text](assets/local_local-stdio.png)
 
 
 B. **Local SSE (multi-client / Inspector)**
@@ -80,8 +81,7 @@ export MCP_SSE_HOST=0.0.0.0
 export MCP_SSE_PORT=3001
 mcp-server               # listens on http://localhost:3001/sse
 ```
-or 
-- Create a .env file with `MCP_TRANSPORT`, `MCP_SSE_HOST`, `MCP_SSE_PORT`
+or create a .env file with `MCP_TRANSPORT`, `MCP_SSE_HOST`, `MCP_SSE_PORT`
 
 ```bash
 # Terminal 2 – connect client
@@ -90,8 +90,10 @@ export MCP_SSE_HOST=0.0.0.1
 export MCP_SSE_PORT=3001
 mcp-client
 ```
-or 
-- Create a .env file with `MCP_TRANSPORT`, `MCP_SSE_HOST`, `MCP_SSE_PORT`
+or create a .env file with `MCP_TRANSPORT`, `MCP_SSE_HOST`, `MCP_SSE_PORT`
+
+The output should look like below:
+![alt text](assets/local_local-sse.png)
 
 C. **Docker SSE**
 ```bash
@@ -102,13 +104,17 @@ Test stream is up:
 ```bash
 curl -N -H "Accept: text/event-stream" http://localhost:3001/sse
 ```
+The output should look like below:
+![alt text](assets/local_remote-sse.png)
+
+
 D. **Remote stdio (SSH)**
 ```bash
 ssh user@remote 'source ~/env/bin/activate && mcp-server'  # run server
 # On local machine, attach your own stdio bridge or use SSH-stdin tunneling
 ```
 
-More detailed deployment methods → DEPLOYMENT.md.
+More detailed deployment methods → [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ---
 
