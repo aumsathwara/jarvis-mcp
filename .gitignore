@@ -1,2 +1,3 @@
 jarvis-cd/
 .venv/
+src/jarvis_mcp/.env

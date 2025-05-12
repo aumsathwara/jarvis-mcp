@@ -45,7 +45,7 @@ class MCPClient:
 
         if transport == "sse":
             # Use Server-Sent Events transport
-            host = os.getenv("MCP_SSE_HOST", "127.0.0.1")
+            host = os.getenv("MCP_SSE_HOST", "0.0.0.0")
             port = os.getenv("MCP_SSE_PORT", "3001")
             url = f"http://{host}:{port}/sse"
             print(f"Connecting via SSE to {url}")
