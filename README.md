@@ -14,7 +14,6 @@ Jarvis-MCP/
 ├── requirements.txt       # PyPI + VCS pins
 ├── README.md              # ← main overview (this file)
 ├── DEPLOYMENT.md          # Local / remote × stdio / SSE guide
-├── EXPLANATION.md         # Deep-dive on architecture & design
 └── src/
     └── jarvis_mcp/
         ├── server.py      # FastMCP server entry-point
