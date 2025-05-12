@@ -19,10 +19,6 @@ dependencies = [
   "jarvis-cd @ git+https://github.com/grc-iit/jarvis-cd.git@main#egg=jarvis-cd",
 ]
 
-[project.urls]
-"Homepage" = "https://github.com/aumsathwara/MCP"
-"Repository" = "https://github.com/aumsathwara/MCP"
-
 [tool.setuptools.packages.find]
 where = ["src"]
 

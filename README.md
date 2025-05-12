@@ -159,5 +159,4 @@ More detailed deployment methods → DEPLOYMENT.md.
 ### Next Steps
 
 * **`DEPLOYMENT.md`** → exact commands for local/remote × stdio/SSE.
-* **`EXPLANATION.md`** → architectural deep dive & extension tips.
-* Run `mcp dev` to open the Inspector and watch live JSON-RPC traffic.
+* Run `mcp dev` to open the Inspector for JSON-RPC communication and debug.
