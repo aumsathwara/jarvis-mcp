@@ -2,7 +2,7 @@
 *A Model-Context-Protocol bridge for Jarvis-CD pipelines*
 ---
 
-A unified **Python client + server framework** that lets you drive Jarvis-CD pipelines through the Model Context Protocol (MCP).  
+A **Gemini client + server framework** that lets you drive Jarvis-CD pipelines and Jarvis-util package through the Model Context Protocol (MCP).  
 It supports both **stdio** and **SSE** transports, runs **locally or remotely**, and wraps **Jarvis-CD’s Pipeline & JarvisManager APIs** behind easy-to-call MCP “tools.”
 
 ---
