@@ -24,7 +24,7 @@ Jarvis-MCP/
 
 ---
 
-## Installation
+## Quick Installation
 
 1. **Clone the repository**
 ```bash
@@ -49,6 +49,11 @@ You now have two commands on your **PATH**:
 | `mcp-server` | Launch FastMCP server (stdio **or** SSE)         |
 | `mcp-client` | Interactive CLI that lists tools & drives Gemini |
 
+> [!NOTE]
+> To run mcp-client you need to setup .env file with GEMINI_API_KEY variable or you can test mcp-server by
+> ```bash
+> mcp dev src/jarvis_mcp/server.py
+> ```
 ---
 
 ## Running It 
