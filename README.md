@@ -19,7 +19,7 @@ Jarvis-MCP/
         ├── server.py      # FastMCP server entry-point
         ├── client.py      # LLM-driven MCP client
         └── capabilities/
-            └── jarvis\_handler.py  # Tools → Jarvis-CD wrappers
+            └── jarvis_handler.py  # Tools → Jarvis-CD wrappers
 ```
 
 ---
