@@ -1,6 +1,6 @@
 ### DEPLOYMENT.md
 
-*A field-guide to launching **Jarvis-MCP** anywhere — local or remote, stdio or SSE, locally or through containers.*
+*A guide to launching **Jarvis-MCP** anywhere — local or remote, stdio or SSE.*
 
 ---
 
@@ -27,6 +27,7 @@
 | `MCP_TRANSPORT` | `stdio`   | `stdio` \| `sse`                         |
 | `MCP_SSE_HOST`  | `0.0.0.0` | Interface to bind (`0.0.0.0` in Docker!) |
 | `MCP_SSE_PORT`  | `3001`    | Port for SSE                             |
+| `GEMINI_API_KEY`| `{your_api}`| LLM Client for MCP tool calls         |
 
 The first `load_dotenv()` call means if a file named **`.env`** exists in the *current working directory* it will override the shell.
 
@@ -37,6 +38,7 @@ The first `load_dotenv()` call means if a file named **`.env`** exists in the *c
 MCP_TRANSPORT=sse
 MCP_SSE_HOST=127.0.0.1
 MCP_SSE_PORT=8000
+GEMINI_API_KEY={your_api_key}
 ```
 
 ### Setting at runtime
@@ -46,6 +48,7 @@ MCP_SSE_PORT=8000
 export MCP_TRANSPORT=sse
 export MCP_SSE_HOST=0.0.0.0
 export MCP_SSE_PORT=3001
+export GEMINI_API_KEY={your_api_key}
 mcp-server
 ```
 
@@ -54,6 +57,7 @@ mcp-server
 $Env:MCP_TRANSPORT = "sse"
 $Env:MCP_SSE_HOST  = "127.0.0.1"
 $Env:MCP_SSE_PORT  = "8000"
+$Env:GEMINI_API_KEY={your_api_key}
 mcp-server
 ```
 
@@ -77,10 +81,16 @@ mcp-server
 # Terminal 1 (server)
 echo "MCP_TRANSPORT=sse" > .env
 mcp-server                  # binds http://127.0.0.1:3001/sse
+#or
+python src/jarvis_mcp/server.py
 
 # Terminal 2 (client)
 mcp-client                  # auto-reads .env and connects over SSE
+#or
+python src/jarvis_mcp/client.py
 ```
+> [!NOTE]
+ > One can create .env inside src/jarvis_mcp with environment variables
 
 **Smoke-test**
 
@@ -96,7 +106,7 @@ curl -N -H "Accept: text/event-stream" http://localhost:3001/sse
 You develop on your laptop but run Jarvis-MCP on a lab workstation or VM.
 
 ```
- [local mcp-client]  <--HTTP/SSE-->  [remote mcp-server]
+ [local mcp-client]  <--SSE-->  [remote mcp-server]
 ```
 
 1. **SSH onto remote host**
